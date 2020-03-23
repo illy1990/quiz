@@ -64,6 +64,8 @@ let data = [
 let section = document.createElement("section")
 section.id = "gallery"
 let index = 1;
+let index2 = 0;
+
 
 
 for (let i of data) {
@@ -77,6 +79,7 @@ for (let i of data) {
     p1.style.fontWeight = "bold"
 
     let div = document.createElement("div")
+
     let divArray = i.choice;
     let AnswerArray = i.answer;
 
@@ -87,15 +90,17 @@ for (let i of data) {
     for (l of divArray) {
         let span = document.createElement("span")
         div.appendChild(span)
-        span.innerHTML = (l + "<br>")
+        span.innerHTML = (l)
         span.setAttribute("id", index);
+        span.setAttribute("class", index2);
         index++;
         span.style.margin = "40px"
         span.style.padding = "50px"
         span.style.backgroundColor = "grey"
         span.style.color = "white"
-        span.setAttribute("onclick", "Uberprufen()")
+        // span.setAttribute("onclick", "Uberprufen(l)")
     }
+    index2++;
 
     // let p3 = document.createElement("p")
 
@@ -112,18 +117,7 @@ for (let i of data) {
     figure.appendChild(figcaption)
     section.appendChild(figure)
 
-    // function Uberprufen() {
-    //     if (i.choice == i.answer) {
-    //         console.log(AnswerArray)
-    //         console.log("ja, das sollte richtig sein")
-    //         // span.style.backgroundColor = "green"
-    //     }
-    //     else {
-    //         console.log(AnswerArray)
-    //         console.log("nein, das ist falsch")
-    //         // span.style.backgroundColor = "red"
-    //     }
-    // }
+
 }
 
 document.body.appendChild(section)
@@ -134,117 +128,140 @@ for (let j of document.getElementsByTagName("img")) {
 }
 
 
+
+let newSpans = document.querySelectorAll("span")
+for (i of newSpans) {
+    i.addEventListener("click", e =>
+        Uberprufen(e)
+    )
+}
+
+
+function Uberprufen(e) {
+    console.log(e)
+    console.log(e.target.className)
+    console.log(e.target.innerHTML)
+    console.log(data[e.target.className].answer)
+    if (e.target.innerHTML == data[e.target.className].answer) {
+
+        e.target.style.backgroundColor = "green"
+    } else {
+        e.target.style.backgroundColor = "red"
+    }
+}
+
+
 // ganz pragmatisch:
 
-document.getElementById("1").addEventListener("click", () => {
-    document.getElementById("1").style.backgroundColor = "red"
-})
+// document.getElementById("1").addEventListener("click", () => {
+//     document.getElementById("1").style.backgroundColor = "red"
+// })
 
-document.getElementById("2").addEventListener("click", () => {
-    document.getElementById("2").style.backgroundColor = "red"
-})
-document.getElementById("3").addEventListener("click", () => {
-    document.getElementById("3").style.backgroundColor = "red"
-})
-document.getElementById("4").addEventListener("click", () => {
-    document.getElementById("4").style.backgroundColor = "green"
-})
-document.getElementById("5").addEventListener("click", () => {
-    document.getElementById("5").style.backgroundColor = "red"
-})
-document.getElementById("6").addEventListener("click", () => {
-    document.getElementById("6").style.backgroundColor = "red"
-})
-document.getElementById("7").addEventListener("click", () => {
-    document.getElementById("7").style.backgroundColor = "green"
-})
-document.getElementById("8").addEventListener("click", () => {
-    document.getElementById("8").style.backgroundColor = "red"
-})
-document.getElementById("9").addEventListener("click", () => {
-    document.getElementById("9").style.backgroundColor = "red"
-})
-document.getElementById("10").addEventListener("click", () => {
-    document.getElementById("10").style.backgroundColor = "green"
-})
-document.getElementById("11").addEventListener("click", () => {
-    document.getElementById("11").style.backgroundColor = "red"
-})
-document.getElementById("12").addEventListener("click", () => {
-    document.getElementById("12").style.backgroundColor = "red"
-})
-document.getElementById("13").addEventListener("click", () => {
-    document.getElementById("13").style.backgroundColor = "red"
-})
-document.getElementById("14").addEventListener("click", () => {
-    document.getElementById("14").style.backgroundColor = "green"
-})
-document.getElementById("15").addEventListener("click", () => {
-    document.getElementById("15").style.backgroundColor = "red"
-})
-document.getElementById("16").addEventListener("click", () => {
-    document.getElementById("16").style.backgroundColor = "red"
-})
-document.getElementById("17").addEventListener("click", () => {
-    document.getElementById("17").style.backgroundColor = "red"
-})
-document.getElementById("18").addEventListener("click", () => {
-    document.getElementById("18").style.backgroundColor = "green"
-})
-document.getElementById("19").addEventListener("click", () => {
-    document.getElementById("19").style.backgroundColor = "red"
-})
-document.getElementById("20").addEventListener("click", () => {
-    document.getElementById("20").style.backgroundColor = "green"
-})
-document.getElementById("21").addEventListener("click", () => {
-    document.getElementById("21").style.backgroundColor = "red"
-})
-document.getElementById("22").addEventListener("click", () => {
-    document.getElementById("22").style.backgroundColor = "red"
-})
-document.getElementById("23").addEventListener("click", () => {
-    document.getElementById("23").style.backgroundColor = "red"
-})
-document.getElementById("24").addEventListener("click", () => {
-    document.getElementById("24").style.backgroundColor = "green"
-})
-document.getElementById("25").addEventListener("click", () => {
-    document.getElementById("25").style.backgroundColor = "red"
-})
-document.getElementById("26").addEventListener("click", () => {
-    document.getElementById("26").style.backgroundColor = "red"
-})
-document.getElementById("27").addEventListener("click", () => {
-    document.getElementById("27").style.backgroundColor = "red"
-})
-document.getElementById("28").addEventListener("click", () => {
-    document.getElementById("28").style.backgroundColor = "red"
-})
-document.getElementById("29").addEventListener("click", () => {
-    document.getElementById("29").style.backgroundColor = "green"
-})
-document.getElementById("30").addEventListener("click", () => {
-    document.getElementById("30").style.backgroundColor = "red"
-})
-document.getElementById("31").addEventListener("click", () => {
-    document.getElementById("31").style.backgroundColor = "red"
-})
-document.getElementById("32").addEventListener("click", () => {
-    document.getElementById("32").style.backgroundColor = "red"
-})
-document.getElementById("33").addEventListener("click", () => {
-    document.getElementById("33").style.backgroundColor = "green"
-})
-document.getElementById("34").addEventListener("click", () => {
-    document.getElementById("34").style.backgroundColor = "red"
-})
-document.getElementById("35").addEventListener("click", () => {
-    document.getElementById("35").style.backgroundColor = "green"
-})
-document.getElementById("36").addEventListener("click", () => {
-    document.getElementById("36").style.backgroundColor = "red"
-})
-document.getElementById("37").addEventListener("click", () => {
-    document.getElementById("37").style.backgroundColor = "red"
-})
+// document.getElementById("2").addEventListener("click", () => {
+//     document.getElementById("2").style.backgroundColor = "red"
+// })
+// document.getElementById("3").addEventListener("click", () => {
+//     document.getElementById("3").style.backgroundColor = "red"
+// })
+// document.getElementById("4").addEventListener("click", () => {
+//     document.getElementById("4").style.backgroundColor = "green"
+// })
+// document.getElementById("5").addEventListener("click", () => {
+//     document.getElementById("5").style.backgroundColor = "red"
+// })
+// document.getElementById("6").addEventListener("click", () => {
+//     document.getElementById("6").style.backgroundColor = "red"
+// })
+// document.getElementById("7").addEventListener("click", () => {
+//     document.getElementById("7").style.backgroundColor = "green"
+// })
+// document.getElementById("8").addEventListener("click", () => {
+//     document.getElementById("8").style.backgroundColor = "red"
+// })
+// document.getElementById("9").addEventListener("click", () => {
+//     document.getElementById("9").style.backgroundColor = "red"
+// })
+// document.getElementById("10").addEventListener("click", () => {
+//     document.getElementById("10").style.backgroundColor = "green"
+// })
+// document.getElementById("11").addEventListener("click", () => {
+//     document.getElementById("11").style.backgroundColor = "red"
+// })
+// document.getElementById("12").addEventListener("click", () => {
+//     document.getElementById("12").style.backgroundColor = "red"
+// })
+// document.getElementById("13").addEventListener("click", () => {
+//     document.getElementById("13").style.backgroundColor = "red"
+// })
+// document.getElementById("14").addEventListener("click", () => {
+//     document.getElementById("14").style.backgroundColor = "green"
+// })
+// document.getElementById("15").addEventListener("click", () => {
+//     document.getElementById("15").style.backgroundColor = "red"
+// })
+// document.getElementById("16").addEventListener("click", () => {
+//     document.getElementById("16").style.backgroundColor = "red"
+// })
+// document.getElementById("17").addEventListener("click", () => {
+//     document.getElementById("17").style.backgroundColor = "red"
+// })
+// document.getElementById("18").addEventListener("click", () => {
+//     document.getElementById("18").style.backgroundColor = "green"
+// })
+// document.getElementById("19").addEventListener("click", () => {
+//     document.getElementById("19").style.backgroundColor = "red"
+// })
+// document.getElementById("20").addEventListener("click", () => {
+//     document.getElementById("20").style.backgroundColor = "green"
+// })
+// document.getElementById("21").addEventListener("click", () => {
+//     document.getElementById("21").style.backgroundColor = "red"
+// })
+// document.getElementById("22").addEventListener("click", () => {
+//     document.getElementById("22").style.backgroundColor = "red"
+// })
+// document.getElementById("23").addEventListener("click", () => {
+//     document.getElementById("23").style.backgroundColor = "red"
+// })
+// document.getElementById("24").addEventListener("click", () => {
+//     document.getElementById("24").style.backgroundColor = "green"
+// })
+// document.getElementById("25").addEventListener("click", () => {
+//     document.getElementById("25").style.backgroundColor = "red"
+// })
+// document.getElementById("26").addEventListener("click", () => {
+//     document.getElementById("26").style.backgroundColor = "red"
+// })
+// document.getElementById("27").addEventListener("click", () => {
+//     document.getElementById("27").style.backgroundColor = "red"
+// })
+// document.getElementById("28").addEventListener("click", () => {
+//     document.getElementById("28").style.backgroundColor = "red"
+// })
+// document.getElementById("29").addEventListener("click", () => {
+//     document.getElementById("29").style.backgroundColor = "green"
+// })
+// document.getElementById("30").addEventListener("click", () => {
+//     document.getElementById("30").style.backgroundColor = "red"
+// })
+// document.getElementById("31").addEventListener("click", () => {
+//     document.getElementById("31").style.backgroundColor = "red"
+// })
+// document.getElementById("32").addEventListener("click", () => {
+//     document.getElementById("32").style.backgroundColor = "red"
+// })
+// document.getElementById("33").addEventListener("click", () => {
+//     document.getElementById("33").style.backgroundColor = "green"
+// })
+// document.getElementById("34").addEventListener("click", () => {
+//     document.getElementById("34").style.backgroundColor = "red"
+// })
+// document.getElementById("35").addEventListener("click", () => {
+//     document.getElementById("35").style.backgroundColor = "green"
+// })
+// document.getElementById("36").addEventListener("click", () => {
+//     document.getElementById("36").style.backgroundColor = "red"
+// })
+// document.getElementById("37").addEventListener("click", () => {
+//     document.getElementById("37").style.backgroundColor = "red"
+// })
